@@ -1,0 +1,7 @@
+start 0
+delay 5000
+capture 1 enable
+delay 1000
+stop 0
+delay 2000
+capture 1 disable
