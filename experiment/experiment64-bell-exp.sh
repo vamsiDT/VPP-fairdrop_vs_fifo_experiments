@@ -35,7 +35,9 @@ do
     sudo -E $SCRIPTS/installvpp.sh
     echo -e "\n\n\nStarting VPP in l3 forwarding mode with $NAMELC1P0 (Receiving interface) and $NAMELC1P1 (Transmitting Interface)\n\n\n"
     sleep 3
-    sudo -E $SCRIPTS/vpp_l3.sh
+    sudo -E $SCRIPTS/vpp_l3.sh &
+    sleep 20
+    sudo -E $SCRIPTS/ctl.sh
     echo -e "\n\n\nStarting Dpdk-Pktgen with $LC0P0 (Transmitting Interface) and $LC0P1 (Capturing Interface)\n\n\n"
     #screen -L
     $SCRIPTS/pktgen_capture.sh
@@ -74,7 +76,9 @@ do
     sudo -E $SCRIPTS/installvpp.sh
     echo -e "\n\n\nStarting VPP in l3 forwarding mode with $NAMELC1P0 (Receiving interface) and $NAMELC1P1 (Transmitting Interface)\n\n\n"
     sleep 3
-    sudo -E $SCRIPTS/vpp_l3.sh
+    sudo -E $SCRIPTS/vpp_l3.sh &
+    sleep 20
+    sudo -E $SCRIPTS/ctl.sh
     echo -e "\n\n\nStarting Dpdk-Pktgen with $LC0P0 (Transmitting Interface) and $LC0P1 (Capturing Interface)\n\n\n"
     #screen -L 
     $SCRIPTS/pktgen_capture.sh
@@ -121,7 +125,9 @@ do
     sudo -E $SCRIPTS/installvpp.sh
     echo -e "\n\n\nStarting VPP in l3 forwarding mode with $NAMELC1P0 (Receiving interface) and $NAMELC1P1 (Transmitting Interface)\n\n\n"
     sleep 3
-    sudo -E $SCRIPTS/vpp_l3.sh
+    sudo -E $SCRIPTS/vpp_l3.sh &
+    sleep 20
+    sudo -E $SCRIPTS/ctl.sh
     echo -e "\n\n\nStarting Dpdk-Pktgen with $LC0P0 (Transmitting Interface) and $LC0P1 (Capturing Interface)\n\n\n"
     #screen -L 
     $SCRIPTS/pktgen_capture.sh
@@ -159,7 +165,9 @@ do
     sudo -E $SCRIPTS/installvpp.sh
     echo -e "\n\n\nStarting VPP in l3 forwarding mode with $NAMELC1P0 (Receiving interface) and $NAMELC1P1 (Transmitting Interface)\n\n\n"
     sleep 3
-    sudo -E $SCRIPTS/vpp_l3.sh
+    sudo -E $SCRIPTS/vpp_l3.sh &
+    sleep 20
+    sudo -E $SCRIPTS/ctl.sh
     echo -e "\n\n\nStarting Dpdk-Pktgen with $LC0P0 (Transmitting Interface) and $LC0P1 (Capturing Interface)\n\n\n"
     #screen -L 
     $SCRIPTS/pktgen_capture.sh

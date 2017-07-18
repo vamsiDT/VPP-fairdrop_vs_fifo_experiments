@@ -30,9 +30,11 @@ do
     sudo -E $SCRIPTS/installvpp.sh
     echo -e "\n\n\nStarting VPP in l3 forwarding mode with $NAMELC1P0 (Receiving interface) and $NAMELC1P1 (Transmitting Interface)\n\n\n"
     sleep 3
-    sudo -E $SCRIPTS/vpp_l3.sh
+    sudo -E $SCRIPTS/vpp_l3.sh &
+    sleep 20
+    sudo -E $SCRIPTS/ctl.sh
     echo -e "\n\n\nStarting Dpdk-Pktgen with $LC0P0 (Transmitting Interface) and $LC0P1 (Capturing Interface)\n\n\n"
-    #screen -L $SCRIPTS/pktgen_capture.sh #screen requires a terminal. If you want to run the script with nohup, screen cannot be used.
+    #screen -L 
     $SCRIPTS/pktgen_capture.sh
     sudo killall vpp_main
     mv $RTE_PKTGEN/*.pcap $WORKDIR/fair-drop_bell64_turbo_fifo_"$BW".pcap
@@ -67,7 +69,9 @@ do
     sudo -E $SCRIPTS/installvpp.sh
     echo -e "\n\n\nStarting VPP in l3 forwarding mode with $NAMELC1P0 (Receiving interface) and $NAMELC1P1 (Transmitting Interface)\n\n\n"
     sleep 3
-    sudo -E $SCRIPTS/vpp_l3.sh
+    sudo -E $SCRIPTS/vpp_l3.sh &
+    sleep 20
+    sudo -E $SCRIPTS/ctl.sh
     echo -e "\n\n\nStarting Dpdk-Pktgen with $LC0P0 (Transmitting Interface) and $LC0P1 (Capturing Interface)\n\n\n"
     #screen -L 
     $SCRIPTS/pktgen_capture.sh
@@ -80,7 +84,8 @@ echo "captured 1second traces from VPP with BW limitations [0.1 - 1] implementin
 
 echo "capturing 1second trace of sent traffic (exponential-turbo)"
 
-screen -L $SCRIPTS/pktgen_capture_sent.sh
+#screen -L 
+$SCRIPTS/pktgen_capture_sent.sh
 mv $RTE_PKTGEN/*.pcap $WORKDIR/fair-drop_exponential64_sent_turbo_fifo.pcap
 
 
@@ -109,7 +114,9 @@ do
     sudo -E $SCRIPTS/installvpp.sh
     echo -e "\n\n\nStarting VPP in l3 forwarding mode with $NAMELC1P0 (Receiving interface) and $NAMELC1P1 (Transmitting Interface)\n\n\n"
     sleep 3
-    sudo -E $SCRIPTS/vpp_l3.sh
+    sudo -E $SCRIPTS/vpp_l3.sh &
+    sleep 20
+    sudo -E $SCRIPTS/ctl.sh
     echo -e "\n\n\nStarting Dpdk-Pktgen with $LC0P0 (Transmitting Interface) and $LC0P1 (Capturing Interface)\n\n\n"
     #screen -L 
     $SCRIPTS/pktgen_capture.sh
@@ -146,7 +153,9 @@ do
     sudo -E $SCRIPTS/installvpp.sh
     echo -e "\n\n\nStarting VPP in l3 forwarding mode with $NAMELC1P0 (Receiving interface) and $NAMELC1P1 (Transmitting Interface)\n\n\n"
     sleep 3
-    sudo -E $SCRIPTS/vpp_l3.sh
+    sudo -E $SCRIPTS/vpp_l3.sh &
+    sleep 20
+    sudo -E $SCRIPTS/ctl.sh
     echo -e "\n\n\nStarting Dpdk-Pktgen with $LC0P0 (Transmitting Interface) and $LC0P1 (Capturing Interface)\n\n\n"
     #screen -L 
     $SCRIPTS/pktgen_capture.sh
